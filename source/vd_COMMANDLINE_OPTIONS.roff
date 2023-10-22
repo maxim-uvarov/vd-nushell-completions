@@ -1,0 +1,233 @@
+.Sh COMMANDLINE OPTIONS
+.No Add Sy -n Ns / Ns Sy --nonglobal No to make subsequent CLI options "sheet-specific" (applying only to paths specified directly on the CLI). By default, CLI options apply to all sheets.
+.Pp
+.No Options can also be set via the Ar Options Sheet No or a Ar .visidatarc No (see Sx FILES Ns ).
+.Pp
+.Bl -tag -width XXXXXXXXXXXXXXXXXXXXXXXXXXX -compact
+.It Cm -P Ns = Ns Ar longname
+.No preplay Ar longname No before replay or regular launch; limited to Sy Base Sheet No bound commands
+.It Cm + Ns Ar toplevel Ns : Ns Ar subsheet Ns : Ns Ar col Ns : Ns Ar row
+.No launch vd with Ar subsheet No of Ar toplevel No at top-of-stack, and cursor at Ar col No and Ar row Ns ; all arguments are optional
+.Pp
+.Lo f filetype filetype
+.No "tsv               "
+set loader to use for
+.Ar filetype
+instead of file extension
+.
+.Lo d delimiter delimiter
+.No "\(rst                "
+field delimiter to use for tsv/usv filetype
+.
+.Lo y confirm-overwrite F
+.No "True              "
+overwrite existing files without confirmation
+.
+.Lo N nothing T
+.No "False              "
+disable loading .visidatarc and plugin addons
+.
+.El
+.Bl -tag -width XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -compact
+.It Sy --visidata-dir Ns = Ns Ar "str          " No "~/.visidata/"
+directory to load and store additional files
+.It Sy --debug No "                     False"
+exit on error and display stacktrace
+.It Sy --undo Ns = Ns Ar "bool                 " No "True"
+enable undo/redo
+.It Sy --col-cache-size Ns = Ns Ar "int        " No "0"
+max number of cache entries in each cached column
+.It Sy --clean-names No "               False"
+clean column/sheet names to be valid Python identifiers
+.It Sy --note-pending Ns = Ns Ar "str          " No "\[u231B]"
+note to display for pending cells
+.It Sy --note-format-exc Ns = Ns Ar "str       " No "?"
+cell note for an exception during formatting
+.It Sy --note-getter-exc Ns = Ns Ar "str       " No "!"
+cell note for an exception during computation
+.It Sy --note-type-exc Ns = Ns Ar "str         " No "!"
+cell note for an exception during type conversion
+.It Sy --scroll-incr Ns = Ns Ar "int           " No "-3"
+amount to scroll with scrollwheel
+.It Sy --force-256-colors No "          False"
+use 256 colors even if curses reports fewer
+.It Sy --quitguard No "                 False"
+confirm before quitting modified sheet
+.It Sy --default-width Ns = Ns Ar "int         " No "20"
+default column width
+.It Sy --default-height Ns = Ns Ar "int        " No "4"
+default column height
+.It Sy --textwrap-cells Ns = Ns Ar "bool       " No "True"
+wordwrap text for multiline rows
+.It Sy --name-joiner Ns = Ns Ar "str           " No "_"
+string to join sheet or column names
+.It Sy --value-joiner Ns = Ns Ar "str          " No " "
+string to join display values
+.It Sy --wrap No "                      False"
+wrap text to fit window width on TextSheet
+.It Sy --save-filetype Ns = Ns Ar "str         " No "tsv"
+specify default file type to save as
+.It Sy --profile No "                   False"
+enable profiling on threads
+.It Sy --min-memory-mb Ns = Ns Ar "int         " No "0"
+minimum memory to continue loading and async processing
+.It Sy --encoding Ns = Ns Ar "str              " No "utf-8"
+encoding passed to codecs.open
+.It Sy --encoding-errors Ns = Ns Ar "str       " No "surrogateescape"
+encoding_errors passed to codecs.open
+.It Sy --mouse-interval Ns = Ns Ar "int        " No "1"
+max time between press/release for click (ms)
+.It Sy --input-history Ns = Ns Ar "str         " No ""
+basename of file to store persistent input history
+.It Sy --bulk-select-clear No "         False"
+clear selected rows before new bulk selections
+.It Sy --some-selected-rows No "        False"
+if no rows selected, if True, someSelectedRows returns all rows; if False, fails
+.It Sy --load-lazy No "                 False"
+load subsheets always (False) or lazily (True)
+.It Sy --skip Ns = Ns Ar "int                  " No "0"
+skip N rows before header
+.It Sy --header Ns = Ns Ar "int                " No "1"
+parse first N rows as column names
+.It Sy --delimiter Ns = Ns Ar "str             " No "	"
+field delimiter to use for tsv/usv filetype
+.It Sy --row-delimiter Ns = Ns Ar "str         " No "
+"
+row delimiter to use for tsv/usv filetype
+.It Sy --tsv-safe-newline Ns = Ns Ar "str      " No ""
+replacement for newline character when saving to tsv
+.It Sy --tsv-safe-tab Ns = Ns Ar "str          " No ""
+replacement for tab character when saving to tsv
+.It Sy --visibility Ns = Ns Ar "int            " No "0"
+visibility level
+.It Sy --default-sample-size Ns = Ns Ar "int   " No "100"
+number of rows to sample for regex.split (0=all)
+.It Sy --fmt-expand-dict Ns = Ns Ar "str       " No "%s.%s"
+format str to use for names of columns expanded from dict (colname, key)
+.It Sy --fmt-expand-list Ns = Ns Ar "str       " No "%s[%s]"
+format str to use for names of columns expanded from list (colname, index)
+.It Sy --json-indent Ns = Ns Ar "NoneType      " No "None"
+indent to use when saving json
+.It Sy --json-sort-keys No "            False"
+sort object keys when saving to json
+.It Sy --default-colname Ns = Ns Ar "str       " No ""
+column name to use for non-dict rows
+.It Sy --filetype Ns = Ns Ar "str              " No ""
+specify file type
+.It Sy --confirm-overwrite Ns = Ns Ar "bool    " No "True"
+whether to prompt for overwrite confirmation on save
+.It Sy --safe-error Ns = Ns Ar "str            " No "#ERR"
+error string to use while saving
+.It Sy --replay-wait Ns = Ns Ar "float         " No "0.0"
+time to wait between replayed commands, in seconds
+.It Sy --replay-movement No "           False"
+insert movements during replay
+.It Sy --rowkey-prefix Ns = Ns Ar "str         " No "\[u30AD]"
+string prefix for rowkey in the cmdlog
+.It Sy --cmdlog-histfile Ns = Ns Ar "str       " No ""
+file to autorecord each cmdlog action to
+.It Sy --clipboard-copy-cmd Ns = Ns Ar "str    " No "xclip -selection clipboard -filter"
+command to copy stdin to system clipboard
+.It Sy --clipboard-paste-cmd Ns = Ns Ar "str   " No "xclip -selection clipboard -o"
+command to send contents of system clipboard to stdout
+.It Sy --fancy-chooser No "             False"
+a nicer selection interface for aggregators and jointype
+.It Sy --null-value Ns = Ns Ar "NoneType       " No "None"
+a value to be counted as null
+.It Sy --histogram-bins Ns = Ns Ar "int        " No "0"
+number of bins for histogram of numeric columns
+.It Sy --numeric-binning No "           False"
+bin numeric columns into ranges
+.It Sy --show-graph-labels Ns = Ns Ar "bool    " No "True"
+show axes and legend on graph
+.It Sy --plot-colors Ns = Ns Ar "str           " No ""
+list of distinct colors to use for plotting distinct objects
+.It Sy --zoom-incr Ns = Ns Ar "float           " No "2.0"
+amount to multiply current zoomlevel when zooming
+.It Sy --motd-url Ns = Ns Ar "str              " No ""
+source of randomized startup messages
+.It Sy --dir-recurse No "               False"
+walk source path recursively on DirSheet
+.It Sy --dir-hidden No "                False"
+load hidden files on DirSheet
+.It Sy --config Ns = Ns Ar "Path               " No "/home/anja/.visidatarc"
+config file to exec in Python
+.It Sy --play Ns = Ns Ar "str                  " No ""
+file.vd to replay
+.It Sy --batch No "                     False"
+replay in batch mode (with no interface and all status sent to stdout)
+.It Sy --output Ns = Ns Ar "NoneType           " No "None"
+save the final visible sheet to output at the end of replay
+.It Sy --preplay Ns = Ns Ar "str               " No ""
+longnames to preplay before replay
+.It Sy --imports Ns = Ns Ar "str               " No "plugins"
+imports to preload before .visidatarc (command-line only)
+.It Sy --nothing No "                   False"
+no config, no plugins, nothing extra
+.It Sy --plugins-url Ns = Ns Ar "str           " No "https://visidata.org/plugins/plugins.jsonl"
+source of plugins sheet
+.It Sy --plugins-autoload Ns = Ns Ar "bool     " No "True"
+do not autoload plugins if False
+.It Sy --theme Ns = Ns Ar "str                 " No ""
+display/color theme to use
+.It Sy --plt-marker Ns = Ns Ar "str            " No "."
+matplotlib.markers
+.It Sy --plot-palette Ns = Ns Ar "str          " No "Set3"
+colorbrewer palette to use
+.It Sy --describe-aggrs Ns = Ns Ar "str        " No "mean stdev"
+numeric aggregators to calculate on Describe sheet
+.It Sy --incr-base Ns = Ns Ar "float           " No "1.0"
+start value for column increments
+.It Sy --ping-count Ns = Ns Ar "int            " No "3"
+send this many pings to each host
+.It Sy --ping-interval Ns = Ns Ar "float       " No "0.1"
+wait between ping rounds, in seconds
+.It Sy --regex-flags Ns = Ns Ar "str           " No "I"
+flags to pass to re.compile() [AILMSUX]
+.It Sy --regex-maxsplit Ns = Ns Ar "int        " No "0"
+maxsplit to pass to regex.split
+.It Sy --unfurl-empty No "              False"
+if unfurl includes rows for empty containers
+.It Sy --csv-dialect Ns = Ns Ar "str           " No "excel"
+dialect passed to csv.reader
+.It Sy --csv-delimiter Ns = Ns Ar "str         " No ","
+delimiter passed to csv.reader
+.It Sy --csv-quotechar Ns = Ns Ar "str         " No """
+quotechar passed to csv.reader
+.It Sy --csv-skipinitialspace Ns = Ns Ar "bool " No "True"
+skipinitialspace passed to csv.reader
+.It Sy --csv-escapechar Ns = Ns Ar "NoneType   " No "None"
+escapechar passed to csv.reader
+.It Sy --csv-lineterminator Ns = Ns Ar "str    " No "
+"
+lineterminator passed to csv.writer
+.It Sy --safety-first No "              False"
+sanitize input/output to handle edge cases, with a performance cost
+.It Sy --fixed-rows Ns = Ns Ar "int            " No "1000"
+number of rows to check for fixed width columns
+.It Sy --fixed-maxcols Ns = Ns Ar "int         " No "0"
+max number of fixed-width columns to create (0 is no max)
+.It Sy --graphviz-edge-labels Ns = Ns Ar "bool " No "True"
+whether to include edge labels on graphviz diagrams
+.It Sy --html-title Ns = Ns Ar "str            " No "<h2>{sheet.name}</h2>"
+table header when saving to html
+.It Sy --http-max-next Ns = Ns Ar "int         " No "0"
+max next.url pages to follow in http response
+.It Sy --http-req-headers Ns = Ns Ar "dict     " No "{}"
+http headers to send to requests
+.It Sy --npy-allow-pickle No "          False"
+numpy allow unpickling objects (unsafe)
+.It Sy --pcap-internet Ns = Ns Ar "str         " No "n"
+(y/s/n) if save_dot includes all internet hosts separately (y), combined (s), or does not include the internet (n)
+.It Sy --pdf-tables No "                False"
+parse PDF for tables instead of pages of text
+.It Sy --postgres-schema Ns = Ns Ar "str       " No "public"
+The desired schema for the Postgres database
+.It Sy --sqlite-onconnect Ns = Ns Ar "str      " No ""
+sqlite statement to execute after opening a connection
+.It Sy --xlsx-meta-columns No "         False"
+include columns for cell objects, font colors, and fill colors
+.It Sy --xml-parser-huge-tree Ns = Ns Ar "bool " No "True"
+allow very deep trees and very long text content
+.El
+.
