@@ -1,0 +1,101 @@
+export extern "vd" [
+	--visidata-dir: string	# directory to load and store additional files
+	--debug	# exit on error and display stacktrace
+	--undo	# enable undo/redo
+	--col-cache-size: int	# max number of cache entries in each cached column
+	--clean-names	# clean column/sheet names to be valid Python identifiers
+	--note-pending: string	# note to display for pending cells
+	--note-format-exc: string	# cell note for an exception during formatting
+	--note-getter-exc: string	# cell note for an exception during computation
+	--note-type-exc: string	# cell note for an exception during type conversion
+	--scroll-incr: int	# amount to scroll with scrollwheel
+	--force-256-colors	# use 256 colors even if curses reports fewer
+	--quitguard	# confirm before quitting modified sheet
+	--default-width: int	# default column width
+	--default-height: int	# default column height
+	--textwrap-cells	# wordwrap text for multiline rows
+	--name-joiner: string	# string to join sheet or column names
+	--value-joiner: string	# string to join display values
+	--wrap	# wrap text to fit window width on TextSheet
+	--save-filetype: string	# specify default file type to save as
+	--profile	# enable profiling on threads
+	--min-memory-mb: int	# minimum memory to continue loading and async processing
+	--encoding: string	# encoding passed to codecs.open
+	--encoding-errors: string	# encoding_errors passed to codecs.open
+	--mouse-interval: int	# max time between press/release for click (ms)
+	--input-history: string	# basename of file to store persistent input history
+	--bulk-select-clear	# clear selected rows before new bulk selections
+	--some-selected-rows	# if no rows selected, if True, someSelectedRows returns all rows; if False, fails
+	--load-lazy	# load subsheets always (False) or lazily (True)
+	--skip: int	# skip N rows before header
+	--header: int	# parse first N rows as column names
+	--delimiter: string	# field delimiter to use for tsv/usv filetype
+	--row-delimiter: string	# "
+	--tsv-safe-newline: string	# replacement for newline character when saving to tsv
+	--tsv-safe-tab: string	# replacement for tab character when saving to tsv
+	--visibility: int	# visibility level
+	--default-sample-size: int	# number of rows to sample for regex.split (0=all)
+	--fmt-expand-dict: string	# format str to use for names of columns expanded from dict (colname, key)
+	--fmt-expand-list: string	# format str to use for names of columns expanded from list (colname, index)
+	--json-indent	# indent to use when saving json
+	--json-sort-keys	# sort object keys when saving to json
+	--default-colname: string	# column name to use for non-dict rows
+	--filetype: string	# specify file type
+	--confirm-overwrite	# whether to prompt for overwrite confirmation on save
+	--safe-error: string	# error string to use while saving
+	--replay-wait: float	# time to wait between replayed commands, in seconds
+	--replay-movement	# insert movements during replay
+	--rowkey-prefix: string	# string prefix for rowkey in the cmdlog
+	--cmdlog-histfile: string	# file to autorecord each cmdlog action to
+	--clipboard-copy-cmd: string	# command to copy stdin to system clipboard
+	--clipboard-paste-cmd: string	# command to send contents of system clipboard to stdout
+	--fancy-chooser	# a nicer selection interface for aggregators and jointype
+	--null-value	# a value to be counted as null
+	--histogram-bins: int	# number of bins for histogram of numeric columns
+	--numeric-binning	# bin numeric columns into ranges
+	--show-graph-labels	# show axes and legend on graph
+	--plot-colors: string	# list of distinct colors to use for plotting distinct objects
+	--zoom-incr: float	# amount to multiply current zoomlevel when zooming
+	--motd-url: string	# source of randomized startup messages
+	--dir-recurse	# walk source path recursively on DirSheet
+	--dir-hidden	# load hidden files on DirSheet
+	--config: path	# config file to exec in Python
+	--play: string	# file.vd to replay
+	--batch	# replay in batch mode (with no interface and all status sent to stdout)
+	--output	# save the final visible sheet to output at the end of replay
+	--preplay: string	# longnames to preplay before replay
+	--imports: string	# imports to preload before .visidatarc (command-line only)
+	--nothing	# no config, no plugins, nothing extra
+	--plugins-url: string	# source of plugins sheet
+	--plugins-autoload	# do not autoload plugins if False
+	--theme: string	# display/color theme to use
+	--plt-marker: string	# matplotlib.markers
+	--plot-palette: string	# colorbrewer palette to use
+	--describe-aggrs: string	# numeric aggregators to calculate on Describe sheet
+	--incr-base: float	# start value for column increments
+	--ping-count: int	# send this many pings to each host
+	--ping-interval: float	# wait between ping rounds, in seconds
+	--regex-flags: string	# flags to pass to re.compile() [AILMSUX]
+	--regex-maxsplit: int	# maxsplit to pass to regex.split
+	--unfurl-empty	# if unfurl includes rows for empty containers
+	--csv-dialect: string	# dialect passed to csv.reader
+	--csv-delimiter: string	# delimiter passed to csv.reader
+	--csv-quotechar: string	# quotechar passed to csv.reader
+	--csv-skipinitialspace	# skipinitialspace passed to csv.reader
+	--csv-escapechar	# escapechar passed to csv.reader
+	--csv-lineterminator: string	# "
+	--safety-first	# sanitize input/output to handle edge cases, with a performance cost
+	--fixed-rows: int	# number of rows to check for fixed width columns
+	--fixed-maxcols: int	# max number of fixed-width columns to create (0 is no max)
+	--graphviz-edge-labels	# whether to include edge labels on graphviz diagrams
+	--html-title: string	# table header when saving to html
+	--http-max-next: int	# max next.url pages to follow in http response
+	--http-req-headers: string	# http headers to send to requests
+	--npy-allow-pickle	# numpy allow unpickling objects (unsafe)
+	--pcap-internet: string	# (y/s/n) if save_dot includes all internet hosts separately (y), combined (s), or does not include the internet (n)
+	--pdf-tables	# parse PDF for tables instead of pages of text
+	--postgres-schema: string	# The desired schema for the Postgres database
+	--sqlite-onconnect: string	# sqlite statement to execute after opening a connection
+	--xlsx-meta-columns	# include columns for cell objects, font colors, and fill colors
+	--xml-parser-huge-tree	# allow very deep trees and very long text content
+]
