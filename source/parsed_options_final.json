@@ -1,0 +1,596 @@
+[
+    {
+        "long": "--visidata-dir",
+        "type": "str",
+        "default": null,
+        "description": "directory to load and store additional files"
+    },
+    {
+        "long": "--debug",
+        "type": null,
+        "default": "False",
+        "description": "exit on error and display stacktrace"
+    },
+    {
+        "long": "--undo",
+        "type": "bool",
+        "default": null,
+        "description": "enable undo/redo"
+    },
+    {
+        "long": "--col-cache-size",
+        "type": "int",
+        "default": null,
+        "description": "max number of cache entries in each cached column"
+    },
+    {
+        "long": "--clean-names",
+        "type": null,
+        "default": "False",
+        "description": "clean column/sheet names to be valid Python identifiers"
+    },
+    {
+        "long": "--note-pending",
+        "type": "str",
+        "default": null,
+        "description": "note to display for pending cells"
+    },
+    {
+        "long": "--note-format-exc",
+        "type": "str",
+        "default": null,
+        "description": "cell note for an exception during formatting"
+    },
+    {
+        "long": "--note-getter-exc",
+        "type": "str",
+        "default": null,
+        "description": "cell note for an exception during computation"
+    },
+    {
+        "long": "--note-type-exc",
+        "type": "str",
+        "default": null,
+        "description": "cell note for an exception during type conversion"
+    },
+    {
+        "long": "--scroll-incr",
+        "type": "int",
+        "default": null,
+        "description": "amount to scroll with scrollwheel"
+    },
+    {
+        "long": "--force-256-colors",
+        "type": null,
+        "default": "False",
+        "description": "use 256 colors even if curses reports fewer"
+    },
+    {
+        "long": "--quitguard",
+        "type": null,
+        "default": "False",
+        "description": "confirm before quitting modified sheet"
+    },
+    {
+        "long": "--default-width",
+        "type": "int",
+        "default": null,
+        "description": "default column width"
+    },
+    {
+        "long": "--default-height",
+        "type": "int",
+        "default": null,
+        "description": "default column height"
+    },
+    {
+        "long": "--textwrap-cells",
+        "type": "bool",
+        "default": null,
+        "description": "wordwrap text for multiline rows"
+    },
+    {
+        "long": "--name-joiner",
+        "type": "str",
+        "default": null,
+        "description": "string to join sheet or column names"
+    },
+    {
+        "long": "--value-joiner",
+        "type": "str",
+        "default": null,
+        "description": "string to join display values"
+    },
+    {
+        "long": "--wrap",
+        "type": null,
+        "default": "False",
+        "description": "wrap text to fit window width on TextSheet"
+    },
+    {
+        "long": "--save-filetype",
+        "type": "str",
+        "default": null,
+        "description": "specify default file type to save as"
+    },
+    {
+        "long": "--profile",
+        "type": null,
+        "default": "False",
+        "description": "enable profiling on threads"
+    },
+    {
+        "long": "--min-memory-mb",
+        "type": "int",
+        "default": null,
+        "description": "minimum memory to continue loading and async processing"
+    },
+    {
+        "long": "--encoding",
+        "type": "str",
+        "default": null,
+        "description": "encoding passed to codecs.open"
+    },
+    {
+        "long": "--encoding-errors",
+        "type": "str",
+        "default": null,
+        "description": "encoding_errors passed to codecs.open"
+    },
+    {
+        "long": "--mouse-interval",
+        "type": "int",
+        "default": null,
+        "description": "max time between press/release for click (ms)"
+    },
+    {
+        "long": "--input-history",
+        "type": "str",
+        "default": null,
+        "description": "basename of file to store persistent input history"
+    },
+    {
+        "long": "--bulk-select-clear",
+        "type": null,
+        "default": "False",
+        "description": "clear selected rows before new bulk selections"
+    },
+    {
+        "long": "--some-selected-rows",
+        "type": null,
+        "default": "False",
+        "description": "if no rows selected, if True, someSelectedRows returns all rows; if False, fails"
+    },
+    {
+        "long": "--load-lazy",
+        "type": null,
+        "default": "False",
+        "description": "load subsheets always (False) or lazily (True)"
+    },
+    {
+        "long": "--skip",
+        "type": "int",
+        "default": null,
+        "description": "skip N rows before header"
+    },
+    {
+        "long": "--header",
+        "type": "int",
+        "default": null,
+        "description": "parse first N rows as column names"
+    },
+    {
+        "long": "--delimiter",
+        "type": "str",
+        "default": null,
+        "description": "field delimiter to use for tsv/usv filetype"
+    },
+    {
+        "long": "--row-delimiter",
+        "type": "str",
+        "default": null,
+        "description": "\""
+    },
+    {
+        "long": "--tsv-safe-newline",
+        "type": "str",
+        "default": null,
+        "description": "replacement for newline character when saving to tsv"
+    },
+    {
+        "long": "--tsv-safe-tab",
+        "type": "str",
+        "default": null,
+        "description": "replacement for tab character when saving to tsv"
+    },
+    {
+        "long": "--visibility",
+        "type": "int",
+        "default": null,
+        "description": "visibility level"
+    },
+    {
+        "long": "--default-sample-size",
+        "type": "int",
+        "default": null,
+        "description": "number of rows to sample for regex.split (0=all)"
+    },
+    {
+        "long": "--fmt-expand-dict",
+        "type": "str",
+        "default": null,
+        "description": "format str to use for names of columns expanded from dict (colname, key)"
+    },
+    {
+        "long": "--fmt-expand-list",
+        "type": "str",
+        "default": null,
+        "description": "format str to use for names of columns expanded from list (colname, index)"
+    },
+    {
+        "long": "--json-indent",
+        "type": "NoneType",
+        "default": null,
+        "description": "indent to use when saving json"
+    },
+    {
+        "long": "--json-sort-keys",
+        "type": null,
+        "default": "False",
+        "description": "sort object keys when saving to json"
+    },
+    {
+        "long": "--default-colname",
+        "type": "str",
+        "default": null,
+        "description": "column name to use for non-dict rows"
+    },
+    {
+        "long": "--filetype",
+        "type": "str",
+        "default": null,
+        "description": "specify file type"
+    },
+    {
+        "long": "--confirm-overwrite",
+        "type": "bool",
+        "default": null,
+        "description": "whether to prompt for overwrite confirmation on save"
+    },
+    {
+        "long": "--safe-error",
+        "type": "str",
+        "default": null,
+        "description": "error string to use while saving"
+    },
+    {
+        "long": "--replay-wait",
+        "type": "float",
+        "default": null,
+        "description": "time to wait between replayed commands, in seconds"
+    },
+    {
+        "long": "--replay-movement",
+        "type": null,
+        "default": "False",
+        "description": "insert movements during replay"
+    },
+    {
+        "long": "--rowkey-prefix",
+        "type": "str",
+        "default": null,
+        "description": "string prefix for rowkey in the cmdlog"
+    },
+    {
+        "long": "--cmdlog-histfile",
+        "type": "str",
+        "default": null,
+        "description": "file to autorecord each cmdlog action to"
+    },
+    {
+        "long": "--clipboard-copy-cmd",
+        "type": "str",
+        "default": null,
+        "description": "command to copy stdin to system clipboard"
+    },
+    {
+        "long": "--clipboard-paste-cmd",
+        "type": "str",
+        "default": null,
+        "description": "command to send contents of system clipboard to stdout"
+    },
+    {
+        "long": "--fancy-chooser",
+        "type": null,
+        "default": "False",
+        "description": "a nicer selection interface for aggregators and jointype"
+    },
+    {
+        "long": "--null-value",
+        "type": "NoneType",
+        "default": null,
+        "description": "a value to be counted as null"
+    },
+    {
+        "long": "--histogram-bins",
+        "type": "int",
+        "default": null,
+        "description": "number of bins for histogram of numeric columns"
+    },
+    {
+        "long": "--numeric-binning",
+        "type": null,
+        "default": "False",
+        "description": "bin numeric columns into ranges"
+    },
+    {
+        "long": "--show-graph-labels",
+        "type": "bool",
+        "default": null,
+        "description": "show axes and legend on graph"
+    },
+    {
+        "long": "--plot-colors",
+        "type": "str",
+        "default": null,
+        "description": "list of distinct colors to use for plotting distinct objects"
+    },
+    {
+        "long": "--zoom-incr",
+        "type": "float",
+        "default": null,
+        "description": "amount to multiply current zoomlevel when zooming"
+    },
+    {
+        "long": "--motd-url",
+        "type": "str",
+        "default": null,
+        "description": "source of randomized startup messages"
+    },
+    {
+        "long": "--dir-recurse",
+        "type": null,
+        "default": "False",
+        "description": "walk source path recursively on DirSheet"
+    },
+    {
+        "long": "--dir-hidden",
+        "type": null,
+        "default": "False",
+        "description": "load hidden files on DirSheet"
+    },
+    {
+        "long": "--config",
+        "type": "Path",
+        "default": null,
+        "description": "config file to exec in Python"
+    },
+    {
+        "long": "--play",
+        "type": "str",
+        "default": null,
+        "description": "file.vd to replay"
+    },
+    {
+        "long": "--batch",
+        "type": null,
+        "default": "False",
+        "description": "replay in batch mode (with no interface and all status sent to stdout)"
+    },
+    {
+        "long": "--output",
+        "type": "NoneType",
+        "default": null,
+        "description": "save the final visible sheet to output at the end of replay"
+    },
+    {
+        "long": "--preplay",
+        "type": "str",
+        "default": null,
+        "description": "longnames to preplay before replay"
+    },
+    {
+        "long": "--imports",
+        "type": "str",
+        "default": null,
+        "description": "imports to preload before .visidatarc (command-line only)"
+    },
+    {
+        "long": "--nothing",
+        "type": null,
+        "default": "False",
+        "description": "no config, no plugins, nothing extra"
+    },
+    {
+        "long": "--plugins-url",
+        "type": "str",
+        "default": null,
+        "description": "source of plugins sheet"
+    },
+    {
+        "long": "--plugins-autoload",
+        "type": "bool",
+        "default": null,
+        "description": "do not autoload plugins if False"
+    },
+    {
+        "long": "--theme",
+        "type": "str",
+        "default": null,
+        "description": "display/color theme to use"
+    },
+    {
+        "long": "--plt-marker",
+        "type": "str",
+        "default": null,
+        "description": "matplotlib.markers"
+    },
+    {
+        "long": "--plot-palette",
+        "type": "str",
+        "default": null,
+        "description": "colorbrewer palette to use"
+    },
+    {
+        "long": "--describe-aggrs",
+        "type": "str",
+        "default": null,
+        "description": "numeric aggregators to calculate on Describe sheet"
+    },
+    {
+        "long": "--incr-base",
+        "type": "float",
+        "default": null,
+        "description": "start value for column increments"
+    },
+    {
+        "long": "--ping-count",
+        "type": "int",
+        "default": null,
+        "description": "send this many pings to each host"
+    },
+    {
+        "long": "--ping-interval",
+        "type": "float",
+        "default": null,
+        "description": "wait between ping rounds, in seconds"
+    },
+    {
+        "long": "--regex-flags",
+        "type": "str",
+        "default": null,
+        "description": "flags to pass to re.compile() [AILMSUX]"
+    },
+    {
+        "long": "--regex-maxsplit",
+        "type": "int",
+        "default": null,
+        "description": "maxsplit to pass to regex.split"
+    },
+    {
+        "long": "--unfurl-empty",
+        "type": null,
+        "default": "False",
+        "description": "if unfurl includes rows for empty containers"
+    },
+    {
+        "long": "--csv-dialect",
+        "type": "str",
+        "default": null,
+        "description": "dialect passed to csv.reader"
+    },
+    {
+        "long": "--csv-delimiter",
+        "type": "str",
+        "default": null,
+        "description": "delimiter passed to csv.reader"
+    },
+    {
+        "long": "--csv-quotechar",
+        "type": "str",
+        "default": null,
+        "description": "quotechar passed to csv.reader"
+    },
+    {
+        "long": "--csv-skipinitialspace",
+        "type": "bool",
+        "default": null,
+        "description": "skipinitialspace passed to csv.reader"
+    },
+    {
+        "long": "--csv-escapechar",
+        "type": "NoneType",
+        "default": null,
+        "description": "escapechar passed to csv.reader"
+    },
+    {
+        "long": "--csv-lineterminator",
+        "type": "str",
+        "default": null,
+        "description": "\""
+    },
+    {
+        "long": "--safety-first",
+        "type": null,
+        "default": "False",
+        "description": "sanitize input/output to handle edge cases, with a performance cost"
+    },
+    {
+        "long": "--fixed-rows",
+        "type": "int",
+        "default": null,
+        "description": "number of rows to check for fixed width columns"
+    },
+    {
+        "long": "--fixed-maxcols",
+        "type": "int",
+        "default": null,
+        "description": "max number of fixed-width columns to create (0 is no max)"
+    },
+    {
+        "long": "--graphviz-edge-labels",
+        "type": "bool",
+        "default": null,
+        "description": "whether to include edge labels on graphviz diagrams"
+    },
+    {
+        "long": "--html-title",
+        "type": "str",
+        "default": null,
+        "description": "table header when saving to html"
+    },
+    {
+        "long": "--http-max-next",
+        "type": "int",
+        "default": null,
+        "description": "max next.url pages to follow in http response"
+    },
+    {
+        "long": "--http-req-headers",
+        "type": "dict",
+        "default": null,
+        "description": "http headers to send to requests"
+    },
+    {
+        "long": "--npy-allow-pickle",
+        "type": null,
+        "default": "False",
+        "description": "numpy allow unpickling objects (unsafe)"
+    },
+    {
+        "long": "--pcap-internet",
+        "type": "str",
+        "default": null,
+        "description": "(y/s/n) if save_dot includes all internet hosts separately (y), combined (s), or does not include the internet (n)"
+    },
+    {
+        "long": "--pdf-tables",
+        "type": null,
+        "default": "False",
+        "description": "parse PDF for tables instead of pages of text"
+    },
+    {
+        "long": "--postgres-schema",
+        "type": "str",
+        "default": null,
+        "description": "The desired schema for the Postgres database"
+    },
+    {
+        "long": "--sqlite-onconnect",
+        "type": "str",
+        "default": null,
+        "description": "sqlite statement to execute after opening a connection"
+    },
+    {
+        "long": "--xlsx-meta-columns",
+        "type": null,
+        "default": "False",
+        "description": "include columns for cell objects, font colors, and fill colors"
+    },
+    {
+        "long": "--xml-parser-huge-tree",
+        "type": "bool",
+        "default": null,
+        "description": "allow very deep trees and very long text content"
+    }
+]
